@@ -10,6 +10,11 @@ const AddTodo = props => {
         setTask('');
     }
 
+    const handleClear = event => {
+        event.preventDefault();
+        props.dispatch({type:'CLEAR'});
+    }
+
     return (
         <form
             onSubmit={event => handleSubmit(event)}
@@ -23,7 +28,7 @@ const AddTodo = props => {
             />
             <button type="submit">Add</button>
             <button 
-                //onClick={event => this.handleClear(event)}
+                onClick={event => handleClear(event)}
             >Clear</button>
         </form>
     );
